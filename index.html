@@ -242,31 +242,52 @@
            HERO SECTION
         ====================================================== */
 
-        .hero {
-            min-height: 100vh;
+       .hero {
+    min-height: 100vh;
+    position: relative;
 
-            position: relative;
+    display: flex;
+    align-items: center;
 
-            display: flex;
+    padding: 120px 8% 70px;
 
-            align-items: center;
+    overflow: hidden;
+}
 
-            padding: 120px 8% 70px;
+/* Background Video */
+.hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
 
-            overflow: hidden;
+    width: 100%;
+    height: 100%;
 
-            background:
-                linear-gradient(
-                    90deg,
-                    rgba(0, 0, 0, 0.96) 0%,
-                    rgba(0, 0, 0, 0.78) 45%,
-                    rgba(0, 0, 0, 0.38) 100%
-                ),
-                url(
-                    "828508381_17937458616383886_5533600701010339648_n.jpg"
-                )
-                center / cover;
-        }
+    object-fit: cover;
+
+    z-index: 0;
+}
+
+/* Same dark gradient as your old background */
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 0.96) 0%,
+        rgba(0, 0, 0, 0.78) 45%,
+        rgba(0, 0, 0, 0.38) 100%
+    );
+
+    z-index: 1;
+}
+
+/* Content stays above video */
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
 
 
         .hero::after {
@@ -1989,7 +2010,22 @@
         </div>
 
     </section>
+<section class="hero">
 
+    <!-- Background Video -->
+    <video class="hero-video" autoplay muted loop playsinline>
+        <source src="background video.mov" type="video/mp4">
+    </video>
+
+    <!-- Dark Gradient Overlay -->
+    <div class="hero-overlay"></div>
+
+    <!-- Your existing content -->
+    <div class="hero-content">
+        <!-- your content here -->
+    </div>
+
+</section>
 
     <!-- =====================================================
          WHAT IS A TATTOO
