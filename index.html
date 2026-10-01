@@ -242,52 +242,31 @@
            HERO SECTION
         ====================================================== */
 
-       .hero {
-    min-height: 100vh;
-    position: relative;
+        .hero {
+            min-height: 100vh;
 
-    display: flex;
-    align-items: center;
+            position: relative;
 
-    padding: 120px 8% 70px;
+            display: flex;
 
-    overflow: hidden;
-}
+            align-items: center;
 
-/* Background Video */
-.hero-video {
-    position: absolute;
-    top: 0;
-    left: 0;
+            padding: 120px 8% 70px;
 
-    width: 100%;
-    height: 100%;
+            overflow: hidden;
 
-    object-fit: cover;
-
-    z-index: 0;
-}
-
-/* Same dark gradient as your old background */
-.hero-overlay {
-    position: absolute;
-    inset: 0;
-
-    background: linear-gradient(
-        90deg,
-        rgba(0, 0, 0, 0.96) 0%,
-        rgba(0, 0, 0, 0.78) 45%,
-        rgba(0, 0, 0, 0.38) 100%
-    );
-
-    z-index: 1;
-}
-
-/* Content stays above video */
-.hero-content {
-    position: relative;
-    z-index: 2;
-}
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(0, 0, 0, 0.96) 0%,
+                    rgba(0, 0, 0, 0.78) 45%,
+                    rgba(0, 0, 0, 0.38) 100%
+                ),
+                url(
+                    "828508381_17937458616383886_5533600701010339648_n.jpg"
+                )
+                center / cover;
+        }
 
 
         .hero::after {
@@ -2039,18 +2018,17 @@
 
 
                 <h2 class="section-title">
-                    EVERY TATTOO STARTS WITH
-                    <span>A STORY.</span>
+                    WHAT IS A
+                    <span>TATTOO?</span>
                 </h2>
 
 
                 <p>
-                    Welcome to Mystery Ink Tattoo Studio — where art meets skin. 
-                    Enosh Fernando runs Mystery Ink the way he posts: quality over quantity. 
-                    Every piece is drawn for you and treated like an editorial shoot — flowing script,
-                    delicate fine line and abstract wave work with clean, deliberate composition. 
-                    Clients call the studio calm, precise and welcoming, and every one of its 53 Google reviews is 5 stars.
-                    Sterile, single-use equipment, every time.
+                    A tattoo is a form of body art created
+                    by placing permanent ink into the skin.
+                    But beyond the ink and needles, a tattoo
+                    can represent identity, memories,
+                    creativity, beliefs and personal stories.
                 </p>
 
 
@@ -2064,10 +2042,9 @@
 
 
                 <div class="quote">
-    <h2>ENOSH FERNANDO</h2>
-    <span>TATTOO ARTIST</span>
-    <p>NEGOMBO · SRI LANKA</p>
-</div>
+                    "Your skin is the canvas.
+                    Your story is the design."
+                </div>
 
             </div>
 
@@ -2227,10 +2204,10 @@
 
     <div class="customer-styles-heading">
         <span class="customer-styles-label">OUR WORK</span>
-        <h2>THE WORK <span>SPEAKS.</span></h2>
+        <h2>Customer <span>Tattoo Styles</span></h2>
         <p>
-            Real work from Mystery Ink Tattoo Studio, 
-            Negombo — shot the way it deserves. 
+            Real tattoo styles created for our customers.
+            Explore some of our latest tattoo work and designs. 
         </p>
     </div>
 
@@ -2583,37 +2560,7 @@
     }
 
 }
-.quote {
-    text-align: center;
-    padding: 25px 20px;
-    font-family: "Arial", sans-serif;
-    color: #fff;
-}
 
-.quote h2 {
-    margin: 0;
-    font-size: 32px;
-    font-weight: 700;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-}
-
-.quote span {
-    display: block;
-    margin-top: 8px;
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: 5px;
-    color: #bdbdbd;
-}
-
-.quote p {
-    margin: 12px 0 0;
-    font-size: 11px;
-    letter-spacing: 3px;
-    color: #888;
-    text-transform: uppercase;
-}
 
 /* Mobile */
 
