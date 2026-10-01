@@ -1259,7 +1259,252 @@
             bottom: -22px;
             opacity: 1;
         }
+            /* ================= VISIT STUDIO ================= */
 
+.visit-studio {
+  width: 100%;
+  background: #080808;
+  color: #f3f1ec;
+  padding: 100px 7%;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.studio-container {
+  max-width: 1250px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 42% 58%;
+  gap: 55px;
+  align-items: start;
+}
+
+
+/* ---------- LEFT SIDE ---------- */
+
+.studio-info {
+  padding-top: 10px;
+}
+
+.section-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #a9a9a9;
+  font-size: 11px;
+  letter-spacing: 4px;
+  font-weight: 500;
+  margin-bottom: 25px;
+}
+
+.section-label span {
+  width: 32px;
+  height: 1px;
+  background: #777;
+  display: block;
+}
+
+.studio-info h2 {
+  margin: 0;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: clamp(55px, 5vw, 76px);
+  line-height: 0.94;
+  letter-spacing: -2px;
+  font-weight: 900;
+}
+
+.info-divider {
+  width: 100%;
+  height: 1px;
+  background: #292929;
+  margin: 45px 0 20px;
+}
+
+.studio-name-label,
+.info-title {
+  color: #777;
+  font-size: 10px;
+  letter-spacing: 2px;
+  margin-bottom: 9px;
+  text-transform: uppercase;
+}
+
+.studio-info h3 {
+  margin: 0;
+  font-size: 18px;
+  letter-spacing: 0.5px;
+  font-weight: 700;
+}
+
+.artist {
+  margin: 7px 0 30px;
+  color: #d0d0d0;
+  font-size: 13px;
+}
+
+.info-block {
+  margin-bottom: 27px;
+}
+
+.info-block p {
+  margin: 0;
+  color: #c8c8c8;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.info-block a,
+.contact-row a {
+  color: #e5e5e5;
+  text-decoration: none;
+}
+
+.contact-row {
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.contact-row p {
+  margin: 0;
+  color: #d4d4d4;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.whatsapp-icon {
+  margin-left: 5px;
+  color: #d8d8d8;
+}
+
+.instagram-block {
+  margin-top: 5px;
+}
+
+.instagram-link {
+  display: inline-block;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+}
+
+
+/* ---------- BUTTONS ---------- */
+
+.studio-buttons {
+  display: flex;
+  gap: 12px;
+  margin-top: 50px;
+}
+
+.direction-btn,
+.whatsapp-btn {
+  min-height: 44px;
+  padding: 0 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-decoration: none;
+  font-size: 11px;
+  letter-spacing: 2px;
+  transition: 0.3s ease;
+  box-sizing: border-box;
+}
+
+.direction-btn {
+  background: #f0eee9;
+  color: #111;
+}
+
+.direction-btn:hover {
+  background: #ffffff;
+  transform: translateY(-2px);
+}
+
+.whatsapp-btn {
+  border: 1px solid #333;
+  color: #eee;
+  background: transparent;
+}
+
+.whatsapp-btn:hover {
+  border-color: #777;
+  background: #151515;
+  transform: translateY(-2px);
+}
+
+
+/* ---------- MAP ---------- */
+
+.studio-map {
+  width: 100%;
+  height: 460px;
+  background: #161616;
+  overflow: hidden;
+}
+
+.studio-map iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  filter: grayscale(100%) contrast(1.15) brightness(0.65);
+}
+
+
+/* ---------- RESPONSIVE ---------- */
+
+@media (max-width: 900px) {
+
+  .visit-studio {
+    padding: 70px 6%;
+  }
+
+  .studio-container {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  .studio-map {
+    height: 400px;
+    order: 2;
+  }
+
+  .studio-info {
+    order: 1;
+  }
+}
+
+
+@media (max-width: 600px) {
+
+  .visit-studio {
+    padding: 60px 20px;
+  }
+
+  .studio-info h2 {
+    font-size: 58px;
+  }
+
+  .contact-row {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .studio-buttons {
+    flex-direction: column;
+    margin-top: 35px;
+  }
+
+  .direction-btn,
+  .whatsapp-btn {
+    width: 100%;
+  }
+
+  .studio-map {
+    height: 330px;
+  }
+}
 
         /* =====================================================
            FOOTER
@@ -2865,7 +3110,99 @@
         </div>
 
     </section>
+            <!-- ================= VISIT THE STUDIO SECTION ================= -->
+<section class="visit-studio">
+  <div class="studio-container">
 
+    <!-- LEFT CONTENT -->
+    <div class="studio-info">
+
+      <div class="section-label">
+        <span></span>
+        LOCATION & HOURS
+      </div>
+
+      <h2>VISIT THE<br>STUDIO.</h2>
+
+      <div class="info-divider"></div>
+
+      <div class="studio-name-label">STUDIO NAME</div>
+      <h3>MYSTERY INK TATTOO STUDIO</h3>
+      <p class="artist">By Enosh Fernando 🇱🇰</p>
+
+      <div class="info-block">
+        <div>
+          <div class="info-title">ADDRESS</div>
+          <p>
+            99/7a Rawala Rd<br>
+            Negombo, Sri Lanka
+          </p>
+        </div>
+      </div>
+
+      <div class="contact-row">
+
+        <div>
+          <div class="info-title">PHONE / WHATSAPP</div>
+          <p>
+            <a href="tel:+94774237079">+94 77 423 7079</a>
+            <span class="whatsapp-icon">◉</span>
+          </p>
+        </div>
+
+        <div>
+          <div class="info-title">OPENING HOURS</div>
+          <p>Open daily · 9 AM – 10 PM</p>
+        </div>
+
+      </div>
+
+      <div class="info-block instagram-block">
+        <div class="info-title">INSTAGRAM</div>
+        <a href="#" class="instagram-link">
+          ◎ @mysteryink.nmb ↗
+        </a>
+      </div>
+
+      <div class="studio-buttons">
+
+        <a
+          href="https://www.google.com/maps/search/?api=1&query=99%2F7a+Rawala+Rd%2C+Negombo%2C+Sri+Lanka"
+          target="_blank"
+          class="direction-btn"
+        >
+          <span>⌖</span>
+          GET DIRECTIONS →
+        </a>
+
+        <a
+          href="https://wa.me/94774237079"
+          target="_blank"
+          class="whatsapp-btn"
+        >
+          <span>◉</span>
+          WHATSAPP US →
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <!-- RIGHT MAP -->
+    <div class="studio-map">
+
+      <iframe
+        src="https://www.google.com/maps?q=99%2F7a%20Rawala%20Rd%2C%20Negombo%2C%20Sri%20Lanka&output=embed"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        allowfullscreen>
+      </iframe>
+
+    </div>
+
+  </div>
+</section>
 
     <!-- =====================================================
          SOCIAL MEDIA
