@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#050505">
 <title>MysteryLink | Tattoo Studio</title>
 <meta name="description" content="MysteryLink Tattoo Studio, Negombo. Custom tattoo art by Enosh Fernando.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -164,10 +165,93 @@ nav li{border-bottom:1px solid var(--line)}nav a{display:block;padding:18px 6%}
 @keyframes bob{50%{transform:translateY(-6px)}}
 .reveal{transition:opacity .9s var(--d,0s),transform .9s var(--d,0s)}
 @media(max-width:900px){.stats{grid-template-columns:1fr 1fr}.srow img{width:200px;height:270px}}
+
+.hero{position:relative;height:100vh;min-height:640px;overflow:hidden;background:radial-gradient(circle at 72% 48%,#2c0408,#050505 65%)}
+.hero-ui h1{font-size:clamp(70px,11vw,170px)}
+.hero-ui{background:linear-gradient(90deg,rgba(5,5,5,.75),transparent 60%)}
+.art{background:#070707}
+.lead{color:#999;max-width:520px;line-height:1.8}
+.art-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:50px;perspective:1200px}
+.art-grid .card:nth-child(3n+2){margin-top:46px}
+.card{height:440px;position:relative;overflow:hidden;border-radius:20px;border:1px solid var(--line);background:#111;box-shadow:0 20px 50px rgba(0,0,0,.5);cursor:zoom-in}
+.card img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s,filter .5s;filter:grayscale(30%)}
+.card:hover img{transform:scale(1.1);filter:none}
+.card:hover{border-color:rgba(229,9,20,.6);box-shadow:0 30px 70px rgba(0,0,0,.7),0 0 40px rgba(229,9,20,.2)}
+.card div{position:absolute;inset:0;display:flex;align-items:flex-end;padding:26px;background:linear-gradient(transparent 45%,rgba(0,0,0,.92));transform:translateZ(40px)}
+.card h3{font-size:30px;letter-spacing:2px}
+.card h3::after{content:"";display:block;width:36px;height:3px;background:var(--red);margin-top:8px;transition:width .4s}
+.card:hover h3::after{width:80px}
+.srow img{cursor:zoom-in}
+.lb{position:fixed;inset:0;background:rgba(0,0,0,.93);display:none;place-items:center;z-index:5000;cursor:zoom-out}
+.lb.open{display:grid}
+.lb img{max-width:92vw;max-height:90vh;border-radius:12px;box-shadow:0 0 80px rgba(229,9,20,.3)}
+.cur{position:fixed;width:14px;height:14px;border-radius:50%;background:var(--red);pointer-events:none;z-index:3000;transform:translate(-50%,-50%);box-shadow:0 0 18px var(--red);transition:width .2s,height .2s}
+.cur.big{width:34px;height:34px;opacity:.6}
+@media(max-width:900px){.art-grid{grid-template-columns:1fr}.art-grid .card:nth-child(3n+2){margin-top:0}.hero-ui{justify-content:flex-start;padding-top:110px;background:linear-gradient(180deg,rgba(5,5,5,.7),transparent 70%)}.hero-ui p{font-size:14px}}
+
+/* ===== ALL DEVICES: phone, tablet, laptop/PC, TV ===== */
+@supports(height:100svh){.hero{height:100svh}}
+header{padding-left:max(6%,env(safe-area-inset-left));padding-right:max(6%,env(safe-area-inset-right))}
+footer{padding-bottom:max(34px,env(safe-area-inset-bottom))}
+img,iframe,canvas{max-width:100%}
+.menu-btn{min-width:44px;min-height:44px}
+
+/* touch devices: no hover-only effects, no fixed bg (iOS), no zoom-on-focus */
+@media(hover:none){.booking{background-attachment:scroll}.card img,.srow img{filter:none}.strips:hover .srow{animation-play-state:running}}
+@media(max-width:900px){.field input,.field select,.field textarea{font-size:16px}.booking{background-attachment:scroll}}
+
+/* tablet */
+@media(min-width:601px) and (max-width:900px){
+  .art-grid{grid-template-columns:1fr 1fr}.art-grid .card:nth-child(3n+2){margin-top:0}.card{height:380px}
+  .frame{min-height:420px}.hero-ui{padding-left:7%;padding-right:7%}.hero-ui p{max-width:560px}
+  .rev-grid{grid-template-columns:1fr 1fr}.rev-grid .rev:last-child{grid-column:1/-1}
+}
+/* small laptops / tablet landscape */
+@media(min-width:901px) and (max-width:1200px){nav ul{gap:20px}.grid2,.book-grid{gap:50px}.visit-grid{grid-template-columns:1fr 1fr}.hero-ui h1{font-size:clamp(70px,10vw,130px)}}
+/* phone landscape / short screens */
+@media(max-height:560px) and (orientation:landscape){
+  .hero{height:auto;min-height:560px}.hero-ui{justify-content:center;padding-top:70px}
+  .hero-ui h1{font-size:clamp(46px,9vw,90px);margin-bottom:12px}.hero-ui p{display:none}.scrollhint{display:none}
+}
+@media(max-width:380px){.title{font-size:46px}.btn{padding:14px 20px}.hero-ui .btns{gap:10px}.stat h3{font-size:44px}.marq div{font-size:34px}}
+
+/* large monitors */
+@media(min-width:1600px){
+  section.pad{padding-top:130px;padding-bottom:130px;padding-left:max(8%,calc((100% - 1700px)/2));padding-right:max(8%,calc((100% - 1700px)/2))}
+  .story p,.rev p,.lead,.hero-ui p,.book-grid>div>p,.visit p{font-size:18px}
+  .btn{padding:18px 34px;font-size:14px}nav a{font-size:14px}.logo{font-size:38px}
+  .card{height:520px}.srow img{width:320px;height:420px}.hero-ui{padding-left:max(8%,calc((100% - 1700px)/2))}
+}
+/* TV / 4K: big text for viewing from the sofa */
+@media(min-width:2200px){
+  section.pad{padding-left:max(8%,calc((100% - 2200px)/2));padding-right:max(8%,calc((100% - 2200px)/2))}
+  .story p,.rev p,.lead,.hero-ui p,.book-grid>div>p,.visit p,.step p{font-size:26px;line-height:1.7}
+  .tag,.small,.lbl,.field label{font-size:18px}.hero-ui .small{font-size:18px}
+  .btn,.send,.b1,.b2{font-size:20px;padding:24px 46px}nav a{font-size:20px}.logo{font-size:52px}header{padding-top:26px;padding-bottom:26px}
+  .stat h3{font-size:84px}.stat p{font-size:16px}.card{height:700px}.card h3{font-size:44px}
+  .srow img{width:440px;height:580px}.marq div{font-size:70px}.step b{font-size:50px}.step strong{font-size:22px}
+  .field input,.field select,.field textarea{font-size:20px;padding:22px}.map{height:640px}.who h4{font-size:20px}
+  .artist h3{font-size:52px}.links a{width:100px;height:100px;font-size:36px}footer p{font-size:18px}
+}
+/* focus ring for TV remotes / keyboards */
+.card:focus-visible,a:focus-visible,button:focus-visible{outline:3px solid var(--red);outline-offset:4px}
+
+html,body{overflow-x:clip}
+.hero-ui h1{white-space:nowrap}
+@media(min-width:901px){.hero-ui h1{font-size:clamp(60px,8.5vw,150px)}}
+@media(max-width:900px){.hero-ui{padding-top:96px}.hero-ui h1{font-size:clamp(34px,11vw,110px);letter-spacing:2px}.hero-ui .small{font-size:11px;letter-spacing:3px}}
+@media(min-width:2200px){.hero-ui h1{font-size:clamp(60px,8vw,260px)}}
+
+.sticky{height:100vh}
+@supports(height:100svh){.sticky{height:100svh}}
+@media(max-width:900px){.flight{height:430vh}}
+@media(min-width:2200px){.cap{font-size:60px;bottom:140px}.scrollhint{font-size:18px}}
+@media(max-width:600px){.cap{font-size:26px;bottom:70px}.scrollhint{font-size:10px}}
 </style>
 </head>
 <body>
 <div class="progress" id="pg"></div>
+<div class="lb" id="lb"><img alt=""></div>
 <div class="loader"><b>MYSTERY<i>LINK</i></b></div>
 
 <header>
@@ -175,6 +259,7 @@ nav li{border-bottom:1px solid var(--line)}nav a{display:block;padding:18px 6%}
   <button class="menu-btn" onclick="document.getElementById('nav').classList.toggle('open')" aria-label="Menu">☰</button>
   <nav id="nav"><ul>
     <li><a href="#home">Home</a></li>
+    <li><a href="#art">Tattoo Art</a></li>
     <li><a href="#story">Studio</a></li>
     <li><a href="#reviews">Reviews</a></li>
     <li><a href="#contact">Book</a></li>
@@ -185,14 +270,14 @@ nav li{border-bottom:1px solid var(--line)}nav a{display:block;padding:18px 6%}
 <!-- 3D FLY-THROUGH HERO: scroll to travel through the tattoo work -->
 <div class="flight" id="home">
   <div class="sticky">
-    <canvas id="gl"></canvas>
+    <canvas id="gl" aria-label="3D tattoo gallery"></canvas>
     <div class="hero-ui" id="heroUi">
       <div class="small">Tattoo Studio • Custom Ink • Sri Lanka</div>
       <h1>MYSTERY<span>LINK</span></h1>
       <p>Your story. Your style. Your ink. MysteryLink creates unique tattoo art designed to express personality, memories and individuality through permanent art.</p>
       <div class="btns">
-        <a href="#contact" class="btn btn-red">Book A Tattoo</a>
-        <a href="#story" class="btn btn-line">Meet The Artist</a>
+        <a href="#art" class="btn btn-red">See Our Tattoo Art</a>
+        <a href="#contact" class="btn btn-line">Book A Tattoo</a>
       </div>
     </div>
     <div class="scrollhint" id="hint">SCROLL TO ENTER THE WORK</div>
@@ -203,9 +288,15 @@ nav li{border-bottom:1px solid var(--line)}nav a{display:block;padding:18px 6%}
 
 <div class="marq" aria-hidden="true"><div><span>CUSTOM INK •</span><span>FINE LINE •</span><span>ABSTRACT RITUAL •</span><span>SCRIPT •</span><span>MINIMAL •</span><span>BLACKWORK •</span><span>NEGOMBO •</span><span>CUSTOM INK •</span><span>FINE LINE •</span><span>ABSTRACT RITUAL •</span><span>SCRIPT •</span><span>MINIMAL •</span><span>BLACKWORK •</span><span>NEGOMBO •</span></div></div>
 
-<section class="strips" id="work">
+<section class="pad art" id="art">
+  <div class="reveal"><div class="tag">Our Tattoo Art</div><h2 class="title">OUR TATTOO <span>ART</span></h2>
+  <p class="lead">Every piece is drawn for you. Tap any tattoo to see it full size.</p></div>
+  <div class="art-grid" id="artGrid"></div>
+</section>
+
+<section class="strips" id="more">
   <div style="padding:0 8% 50px" class="reveal"><div class="tag">Our Work</div><h2 class="title">THE WORK <span>SPEAKS.</span></h2></div>
-  <div class="srow" id="r1"></div><div class="srow back" id="r2"></div>
+  <div class="srow" id="r1"></div>
 </section>
 
 <section class="pad story" id="story">
@@ -316,6 +407,29 @@ nav li{border-bottom:1px solid var(--line)}nav a{display:block;padding:18px 6%}
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
+window.WORKS=[
+  ["629323518_122280627944202633_2872532205445067475_n.jpg","Creative Tattoo"],
+  ["670962214_17909752908383886_374351050121946556_n.jpg","Abstract Ritual"],
+  ["629830858_122280629222202633_3217639468702281296_n.jpg","Fine Line"],
+  ["630746106_122280627848202633_1289064240602889073_n.jpg","Custom Ink"],
+  ["631045862_122280629402202633_6546715064217475328_n.jpg","Script"],
+  ["706317351_122185018586759318_7160063173117496348_n.jpg","Minimal"],
+  ["738703809_122179179020858690_2755534786148513175_n.jpg","Blackwork"],
+  ["759622364_17962759464140731_8353265320745243978_n.jpg","Detail"],
+  ["762542958_122182374920858690_4417347326678075760_n.jpg","Custom Piece"],
+  ["778082361_122183957804858690_8979639528392600645_n.jpg","Creative Tattoo"],
+  ["787959013_122185459622858690_3997522741290326912_n.jpg","Fine Line"],
+  ["811711024_17969700303140731_7981331598570483925_n.jpg","Mystery Ink"]
+];
+(function(){const g=document.getElementById("artGrid");WORKS.slice(0,6).forEach(w=>{const d=document.createElement("div");d.className="card reveal";d.dataset.tilt=10;d.tabIndex=0;d.setAttribute("role","button");d.setAttribute("aria-label",w[1]+" tattoo, open full size");d.innerHTML=`<img src="${w[0]}" alt="${w[1]} tattoo" loading="lazy"><div><h3>${w[1]}</h3></div>`;g.appendChild(d)})})();
+/* lightbox + ink cursor */
+(function(){const lb=document.getElementById("lb"),li=lb.querySelector("img");
+document.addEventListener("keydown",e=>{if(e.key==="Enter"&&e.target.classList&&e.target.classList.contains("card"))e.target.click();if(e.key==="Escape")lb.classList.remove("open")});
+document.addEventListener("click",e=>{if(lb.classList.contains("open")){lb.classList.remove("open");return}
+const c=e.target.closest(".card"),im=c?c.querySelector("img"):(e.target.matches(".srow img")?e.target:null);if(im){li.src=im.src;lb.classList.add("open")}});
+if(matchMedia("(pointer:fine)").matches){const c=document.createElement("div");c.className="cur";document.body.appendChild(c);
+addEventListener("mousemove",e=>{c.style.left=e.clientX+"px";c.style.top=e.clientY+"px";c.classList.toggle("big",!!e.target.closest("a,button,.card,.srow img"))})}})();
+
 /* ---------- reveal + tilt ---------- */
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){const t=e.target;t.classList.add("on");io.unobserve(t);setTimeout(()=>{t.classList.remove("reveal","on");t.style.opacity=1},1800)}}),{threshold:.12});
 document.querySelectorAll(".reveal").forEach((el,i)=>{el.style.setProperty("--d",(i%4)*.14+"s");io.observe(el)});
@@ -326,41 +440,24 @@ if(matchMedia("(pointer:fine)").matches)document.querySelectorAll("[data-tilt]")
   el.addEventListener("mouseleave",()=>el.style.transform="");
 });
 
-/* ---------- WebGL fly-through ---------- */
+/* ---------- 3D photo fly-through ---------- */
 (function(){
-  const works=window.WORKS=[
-    ["629323518_122280627944202633_2872532205445067475_n.jpg","Creative Tattoo"],
-    ["670962214_17909752908383886_374351050121946556_n.jpg","Abstract Ritual"],
-    ["629830858_122280629222202633_3217639468702281296_n.jpg","Fine Line"],
-    ["630746106_122280627848202633_1289064240602889073_n.jpg","Custom Ink"],
-    ["631045862_122280629402202633_6546715064217475328_n.jpg","Script"],
-    ["706317351_122185018586759318_7160063173117496348_n.jpg","Minimal"],
-    ["738703809_122179179020858690_2755534786148513175_n.jpg","Blackwork"],
-    ["759622364_17962759464140731_8353265320745243978_n.jpg","Detail"],
-    ["762542958_122182374920858690_4417347326678075760_n.jpg","Custom Piece"],
-    ["778082361_122183957804858690_8979639528392600645_n.jpg","Creative Tattoo"],
-    ["787959013_122185459622858690_3997522741290326912_n.jpg","Fine Line"],
-    ["811711024_17969700303140731_7981331598570483925_n.jpg","Mystery Ink"]
-  ];
-  if(!window.THREE)return;
+  const fl=document.getElementById("home");
+  const works=window.WORKS||[];
+  function flat(){fl.style.height="100svh";fl.style.height="100vh"}
+  if(!window.THREE){flat();return}
   const cv=document.getElementById("gl"),host=cv.parentElement;
-  const R=new THREE.WebGLRenderer({canvas:cv,antialias:true,alpha:true});
-  R.setPixelRatio(Math.min(devicePixelRatio,2));
+  let R;try{R=new THREE.WebGLRenderer({canvas:cv,antialias:true,alpha:true})}catch(err){cv.style.display="none";flat();return}
+  R.setPixelRatio(Math.min(devicePixelRatio,innerWidth>1900?1.25:2));
   const S=new THREE.Scene();S.fog=new THREE.FogExp2(0x050505,.028);
   const C=new THREE.PerspectiveCamera(60,1,.1,200);C.position.z=6;
   const GAP=7,N=works.length,END=-(N*GAP)+4;
-
-  /* red wireframe ink knot that travels with the camera */
   const knot=new THREE.Mesh(new THREE.TorusKnotGeometry(1.3,.38,180,24),new THREE.MeshBasicMaterial({color:0xe50914,wireframe:true,transparent:true,opacity:.55}));
   S.add(knot);
-
-  /* particles */
-  const pc=1800,pp=new Float32Array(pc*3);
+  const pc=1500,pp=new Float32Array(pc*3);
   for(let i=0;i<pc;i++){pp[i*3]=(Math.random()-.5)*30;pp[i*3+1]=(Math.random()-.5)*16;pp[i*3+2]=12-Math.random()*(N*GAP+30)}
   const pg=new THREE.BufferGeometry();pg.setAttribute("position",new THREE.BufferAttribute(pp,3));
   S.add(new THREE.Points(pg,new THREE.PointsMaterial({color:0xff3b3b,size:.06,transparent:true,opacity:.8})));
-
-  /* photo panels */
   const loader=new THREE.TextureLoader(),panels=[];
   works.forEach((w,i)=>{
     const g=new THREE.Group(),side=i%2?1:-1;
@@ -369,47 +466,45 @@ if(matchMedia("(pointer:fine)").matches)document.querySelectorAll("[data-tilt]")
     const e=new THREE.LineSegments(new THREE.EdgesGeometry(new THREE.PlaneGeometry(3.2,4.2)),new THREE.LineBasicMaterial({color:0xe50914}));
     e.position.z=-.02;g.add(m,e);
     g.userData={i,side,base:(Math.random()-.5)*1.2,label:w[1]};
-    g.position.set(side*2.8,0,-(i+1)*GAP+2);
-    g.rotation.y=-side*.35;
+    g.position.set(side*2.8,0,-(i+1)*GAP+2);g.rotation.y=-side*.35;
     S.add(g);panels.push(g);
   });
-
-  function size(){const w=host.clientWidth,h=host.clientHeight;R.setSize(w,h,false);C.aspect=w/h;C.updateProjectionMatrix();panels.forEach(p=>p.position.x=p.userData.side*(w<700?1.5:3));knot.scale.setScalar(w<700?.6:1)}
+  let narrow=false;
+  function size(){const w=host.clientWidth,h=host.clientHeight,a=w/h;R.setSize(w,h,false);C.aspect=a;
+    narrow=a<1;C.fov=a<.7?78:a<1?68:60;C.updateProjectionMatrix();
+    const sp=a<.7?1.35:a<1?2:a<1.4?2.6:3.2;panels.forEach(p=>p.position.x=p.userData.side*sp);knot.scale.setScalar(narrow?.55:1)}
   size();addEventListener("resize",size);
-
-  const ui=document.getElementById("heroUi"),hint=document.getElementById("hint"),cap=document.getElementById("cap"),end=document.getElementById("endUi"),fl=document.getElementById("home");
-  let mx=0,my=0,p=0,sp=0,t=0,lastCap="";
+  const ui=document.getElementById("heroUi"),hint=document.getElementById("hint"),cap=document.getElementById("cap"),end=document.getElementById("endUi");
+  let mx=0,my=0,sp=0,t=0,lastCap="";
   addEventListener("mousemove",e=>{mx=e.clientX/innerWidth-.5;my=e.clientY/innerHeight-.5});
   function loop(){
-    t+=.01;
-    const rect=fl.getBoundingClientRect(),total=fl.offsetHeight-innerHeight;
-    p=Math.min(1,Math.max(0,-rect.top/total));
-    sp+=(p-sp)*.06;
-    const z=6+(END-6)*sp;
-    C.position.set(mx*1.2,-my*.8,z);
-    C.lookAt(mx*.6,-my*.4,z-8);
-    knot.position.set(w2()?0:3.2,0,z-9);knot.rotation.x=t*.8+sp*8;knot.rotation.y=t*.6;
-    panels.forEach(g=>{const u=g.userData;g.position.y=u.base+Math.sin(t*2+u.i)*.18;g.rotation.y=-u.side*.35+Math.sin(t+u.i)*.05});
-    /* caption for panel nearest the camera */
-    let near=null,nd=1e9;panels.forEach(g=>{const d=Math.abs(g.position.z-(z-5));if(d<nd){nd=d;near=g}});
-    const L=nd<3&&sp>.03&&sp<.97?near.userData.label:"";
-    if(L!==lastCap){cap.textContent=L;cap.style.opacity=L?1:0;lastCap=L}
-    ui.style.opacity=Math.max(0,1-sp*10);ui.style.transform=`translateZ(0) translateY(${-sp*200}px)`;
-    hint.style.opacity=Math.max(0,1-sp*14);
-    end.style.opacity=sp>.95?1:0;
-    R.render(S,C);requestAnimationFrame(loop);
+    const rect=fl.getBoundingClientRect();
+    if(rect.bottom>-50&&rect.top<innerHeight){
+      t+=.01;
+      const total=Math.max(1,fl.offsetHeight-innerHeight),p=Math.min(1,Math.max(0,-rect.top/total));
+      sp+=(p-sp)*.06;
+      const z=6+(END-6)*sp;
+      C.position.set(mx*1.2,-my*.8,z);C.lookAt(mx*.6,-my*.4,z-8);
+      knot.position.set(narrow?0:3.2,narrow?-1.6:0,z-9);knot.rotation.x=t*.8+sp*8;knot.rotation.y=t*.6;
+      panels.forEach(g=>{const u=g.userData;g.position.y=u.base+Math.sin(t*2+u.i)*.18;g.rotation.y=-u.side*.35+Math.sin(t+u.i)*.05});
+      let near=null,nd=1e9;panels.forEach(g=>{const d=Math.abs(g.position.z-(z-5));if(d<nd){nd=d;near=g}});
+      const L=nd<3&&sp>.03&&sp<.97?near.userData.label:"";
+      if(L!==lastCap){cap.textContent=L;cap.style.opacity=L?1:0;lastCap=L}
+      ui.style.opacity=Math.max(0,1-sp*10);ui.style.transform=`translateY(${-sp*200}px)`;
+      hint.style.opacity=Math.max(0,1-sp*14);end.style.opacity=sp>.95?1:0;
+      R.render(S,C);
+    }
+    requestAnimationFrame(loop);
   }
-  function w2(){return host.clientWidth<900}
   loop();
 })();
-
 
 /* ---------- extra animation ---------- */
 (function(){
   const h=document.querySelector(".hero-ui h1");let k=0;
   (function wrap(n){[...n.childNodes].forEach(c=>{if(c.nodeType===3){const f=document.createDocumentFragment();[...c.textContent].forEach(ch=>{const s=document.createElement("i");s.className="ch";s.style.animationDelay=(1.9+k++*.07)+"s";s.textContent=ch;f.appendChild(s)});c.replaceWith(f)}else wrap(c)})})(h);
   const W=window.WORKS||[];
-  [["r1",0,6],["r2",6,12]].forEach(([id,a,b])=>{const row=document.getElementById(id);let h2="";for(let r=0;r<2;r++)W.slice(a,b).forEach(w=>h2+=`<img src="${w[0]}" alt="${w[1]} tattoo" loading="lazy">`);row.innerHTML=h2});
+  [["r1",0,12]].forEach(([id,a,b])=>{const row=document.getElementById(id);let h2="";for(let r=0;r<2;r++)W.slice(a,b).forEach(w=>h2+=`<img src="${w[0]}" alt="${w[1]} tattoo" loading="lazy">`);row.innerHTML=h2});
   const co=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;co.unobserve(e.target);const el=e.target,to=+el.dataset.count,t0=performance.now();(function s(t){const q=Math.min(1,(t-t0)/1600);el.textContent=Math.round(to*(1-Math.pow(1-q,3)));if(q<1)requestAnimationFrame(s)})(t0)}));
   document.querySelectorAll("[data-count]").forEach(el=>co.observe(el));
   const pg=document.getElementById("pg");
